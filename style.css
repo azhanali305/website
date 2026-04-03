@@ -1,0 +1,1532 @@
+/* =============================================================
+   THE TRUST SIGNAL — style.css
+   Author: Ayan Ali  |  MA Content Creation, NTU
+   =============================================================
+
+   TABLE OF CONTENTS
+   -----------------
+   1.  CSS Variables (edit colours, radius, nav height here)
+   2.  Reset & Base
+   3.  Navigation
+   4.  Section Shell
+   5.  About Me
+   6.  Buttons
+   7.  Project Page
+        7a. Sky Card (blue header cards)
+        7b. Section Typography
+        7c. Science Grid Cards
+        7d. Problem Banner
+        7e. Cycle Bar
+        7f. Badges Section
+        7g. Badge Table
+   8.  Management Page
+   9.  Sustainability Page
+   10. Collaboration Page
+   11. Appendix Page
+   12. More / References Page
+        12a. References
+        12b. Gallery
+   13. Page Fade Animation
+   14. Mobile Responsive (≤700px)
+   ============================================================= */
+
+
+/* ─────────────────────────────────────────────────────────────
+   1. CSS VARIABLES
+   TWEAK HERE: Change colours, corner radius, nav height.
+   All other values below reference these — one edit cascades
+   through the entire site.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Brand blue — used for nav highlights, badges, buttons, cards */
+  --sky:        #29ABE2;   /* ← Change this to update the accent colour */
+  --sky-light:  #e8f7fd;   /* ← Very light tint, used for hover backgrounds */
+  --sky-dark:   #1a85b5;   /* ← Darker shade, used for gradients & hover states */
+
+  /* Text colours */
+  --ink:  #0f0f0f;   /* ← Near-black for headings (softer than pure #000) */
+  --mid:  #555;      /* ← Mid-grey for body copy */
+
+  /* Background */
+  --pale:  #f7f8fa;   /* ← Off-white for subtle card backgrounds */
+  --white: #ffffff;
+
+  /* Badge colours — each of the 5 Trust Signal badges */
+  --badge-cited:     #F5A623;   /* ← Orange  — CITED */
+  --badge-collected: #4A90D9;   /* ← Blue    — COLLECTED */
+  --badge-corrected: #E0393E;   /* ← Red     — CORRECTED */
+  --badge-curated:   #9B59B6;   /* ← Purple  — CURATED */
+  --badge-credited:  #27AE60;   /* ← Green   — CREDITED */
+
+  /* Layout */
+  --radius: 14px;   /* ← Global border radius. Increase = rounder, decrease = sharper */
+  --nav-h:  64px;   /* ← Height of the fixed top navigation bar */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   2. RESET & BASE
+   ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;  /* ← Base font size. Changing this scales rem units site-wide */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   3. NAVIGATION
+   Fixed frosted-glass bar at the top of every page.
+   TWEAK: Change --nav-h in variables to resize it.
+   ───────────────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(255, 255, 255, 0.92); /* ← Frosted transparency: lower = more see-through */
+  backdrop-filter: blur(12px);           /* ← Blur intensity behind the nav */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;  /* ← Horizontal padding. Reduce for tighter feel */
+  transition: transform 0.3s ease;
+}
+
+/* Brand logo / site name in the nav */
+.nav-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem; /* ← Make bigger if you want it more prominent */
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The animated pulsing dot next to the brand name */
+.nav-brand .signal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sky);
+  animation: pulse 2s ease-in-out infinite;
+  /* TWEAK: Remove 'animation' line to stop the dot pulsing */
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);   opacity: 1;  }
+  50%       { transform: scale(1.4); opacity: .7; }
+  /* TWEAK: Change 1.4 to make the pulse bigger or smaller */
+}
+
+/* Nav link list */
+.nav-links {
+  display: flex;
+  gap: 4px;   /* ← Space between nav items */
+  list-style: none;
+  align-items: center;
+}
+
+/* Individual nav links */
+.nav-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; /* ← Increase if links feel too small */
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  padding: 6px 13px;
+  border-radius: 50px; /* ← Pill shape; reduce to square */
+  transition: all .2s;
+  letter-spacing: .02em;
+}
+
+/* Hover and currently active link state */
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--ink);
+  background: var(--sky-light);
+}
+
+/* The "More" link styled as a filled CTA pill */
+.nav-links a.cta {
+  background: var(--sky);
+  color: white;
+  font-weight: 600;
+}
+.nav-links a.cta:hover {
+  background: var(--sky-dark);
+  color: white;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   4. SECTION SHELL
+   Each page section lives in a <section> tag.
+   Only the .active one is shown (toggled by JS).
+   ───────────────────────────────────────────────────────────── */
+section {
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 60px) 40px 80px; /* Top offset clears the fixed nav */
+  max-width: 960px;  /* ← Max content width. Increase for wider layouts */
+  margin: 0 auto;
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   5. ABOUT ME
+   ───────────────────────────────────────────────────────────── */
+
+/* Two-column grid: photo left, text right */
+.about-hero {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* ← Change 320px to resize the photo column */
+  gap: 56px;
+  align-items: start;
+  padding-top: 20px;
+}
+
+/* Photo placeholder — replace with <img> when ready */
+.avatar-frame {
+  width: 100%;
+  aspect-ratio: 3/4;  /* ← Portrait ratio. Change to 1/1 for square */
+  background: linear-gradient(135deg, var(--sky) 0%, var(--sky-dark) 100%);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle crosshatch SVG pattern overlay on the avatar placeholder */
+.avatar-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  /* TWEAK: Remove this rule to get a plain gradient photo box */
+}
+
+/* Initials shown inside the avatar placeholder */
+.avatar-initials {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 4rem;   /* ← Size of the initials */
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -2px;
+}
+
+/* Main "Hello, I'm Ayan Ali." heading */
+.about-content h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem;   /* ← Reduce to 2.2rem if it feels too big */
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -1.5px;
+}
+
+.about-content p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--mid);
+  margin-bottom: 16px;
+}
+
+/* Quote/tagline block below the hero grid */
+.about-tagline {
+  margin-top: 56px;
+  background: var(--pale);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.25rem; /* ← Reduce for less emphasis */
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: center;
+  border-left: 4px solid var(--sky); /* ← Remove for a plain box look */
+}
+
+/* "See what people say" CTA row */
+.testimonial-cta {
+  margin-top: 32px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 28px;
+  gap: 16px;
+}
+.testimonial-cta span {
+  font-size: 0.9rem;
+  color: var(--mid);
+}
+
+/* Footer contact bar */
+.footer-bar {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-bar .contact {
+  font-size: 0.88rem;
+  color: var(--mid);
+  display: flex;
+  gap: 32px;
+}
+.footer-bar .contact strong {
+  color: var(--ink);
+}
+
+/* Social icon circles */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--sky);  /* ← Change to var(--ink) for black circles */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.social-icons a:hover {
+  background: var(--sky-dark);
+  transform: scale(1.1);
+}
+.social-icons a i {
+  font-size: 14px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   6. BUTTONS
+   Three variants: dark (filled black), sky (filled blue), outline
+   ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;  /* ← Increase for larger buttons */
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: white;
+}
+.btn-dark:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.btn-sky {
+  background: var(--sky);
+  color: white;
+}
+.btn-sky:hover {
+  background: var(--sky-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: white;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   7. PROJECT PAGE
+   ───────────────────────────────────────────────────────────── */
+
+/* 7a. Sky Card — the blue gradient header used on multiple sections */
+.sky-card {
+  background: linear-gradient(135deg, var(--sky) 0%, var(--sky-dark) 100%);
+  /* TWEAK: Change 135deg angle to tilt the gradient direction */
+  color: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  margin-bottom: 48px;
+}
+.sky-card h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.sky-card p {
+  font-size: .95rem;
+  line-height: 1.7;
+  opacity: .92;
+}
+
+/* 7b. Shared section typography helpers */
+.section-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;  /* ← Large section headings */
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -.5px;
+}
+.section-h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.body-text {
+  font-size: .95rem;
+  line-height: 1.75;
+  color: var(--mid);
+  margin-bottom: 24px;
+}
+
+/* 7c. Science grid — 2-column card grid for cognitive bias info */
+.science-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ← Change to 1fr 1fr 1fr for 3 columns */
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.science-card {
+  border: 1.5px solid #eaeaea;
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color .2s, transform .2s;
+}
+.science-card:hover {
+  border-color: var(--sky);
+  transform: translateY(-2px); /* ← Remove for no hover lift effect */
+}
+.science-card h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  margin-bottom: 8px;
+}
+.science-card p {
+  font-size: .85rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+/* 7d. Problem Banner — dark two-column block */
+.problem-banner {
+  background: var(--ink);
+  color: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 40px 0;
+}
+.problem-banner h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.problem-banner ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.problem-banner li {
+  font-size: .88rem;
+  line-height: 1.6;
+  opacity: .85;
+  padding-left: 16px;
+  position: relative;
+}
+.problem-banner li::before {
+  content: '→';   /* ← Change to '•' or '–' for a different bullet style */
+  position: absolute;
+  left: 0;
+  color: var(--sky);
+}
+
+/* 7e. Cycle Bar — sky-blue flow diagram bar */
+.cycle-bar {
+  background: var(--sky);
+  color: white;
+  border-radius: var(--radius);
+  padding: 20px 28px;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 500;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+.cycle-bar strong {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* 7f. Badges Section — intro dark card + badge icon grid */
+.badges-section {
+  margin: 48px 0;
+}
+.badges-intro {
+  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  /* TWEAK: Change to var(--ink) for a flat black look */
+  color: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.badges-intro h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.badges-intro p {
+  font-size: .9rem;
+  line-height: 1.7;
+  opacity: .85;
+}
+.badge-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.badge-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;  /* ← Set to 50% for circular badge icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* 7g. Badge Table */
+.badge-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.badge-table thead th {
+  background: var(--pale);
+  padding: 14px 20px;
+  text-align: left;
+  font-family: 'Syne', sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+/* Rounded corners on header row */
+.badge-table thead th:first-child { border-radius: 10px 0 0 10px; }
+.badge-table thead th:last-child  { border-radius: 0 10px 10px 0; }
+
+.badge-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+.badge-table tbody tr:hover td {
+  background: var(--sky-light);
+}
+.badge-table tbody td {
+  padding: 18px 20px;
+  font-size: .9rem;
+}
+.badge-table td:first-child {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+}
+
+/* Coloured dot square used inside the badge table */
+.dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;  /* ← Set to 50% for circles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   8. MANAGEMENT PAGE
+   Learning outcomes displayed as bordered cards with tags.
+   ───────────────────────────────────────────────────────────── */
+.lo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;  /* ← Space between LO cards */
+  margin-top: 32px;
+}
+.lo-item {
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  border: 1.5px solid #eaeaea;
+  transition: border-color .2s;
+}
+.lo-item:hover {
+  border-color: var(--sky);
+}
+.lo-item h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.lo-item p,
+.lo-item ul {
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+.lo-item ul {
+  padding-left: 18px;
+  margin-top: 6px;
+}
+
+/* Small sky-blue pill tag for LO labels */
+.lo-tag {
+  display: inline-block;
+  background: var(--sky);
+  color: white;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+  letter-spacing: .05em;
+  /* TWEAK: Change background to var(--ink) for black tags */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   9. SUSTAINABILITY PAGE
+   Ethical framework table + two-column summary cards.
+   ───────────────────────────────────────────────────────────── */
+
+/* Outer border container for the 4-row ethics table */
+.ethics-grid {
+  margin: 40px 0;
+  border: 1.5px solid #eaeaea;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Each row: label column + description column */
+.ethics-row {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* ← Widen 120px if labels feel cramped */
+  border-bottom: 1px solid #eaeaea;
+  transition: background .2s;
+}
+.ethics-row:last-child {
+  border-bottom: none;
+}
+.ethics-row:hover {
+  background: var(--sky-light);
+}
+.ethics-label {
+  padding: 22px 20px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  background: var(--pale);
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #eaeaea;
+}
+.ethics-desc {
+  padding: 22px 24px;
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* Two-column sky-blue summary cards */
+.sus-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+.sus-card {
+  background: linear-gradient(135deg, var(--sky) 0%, var(--sky-dark) 100%);
+  color: white;
+  border-radius: var(--radius);
+  padding: 32px;
+}
+.sus-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.sus-card p {
+  font-size: .88rem;
+  line-height: 1.75;
+  opacity: .9;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   10. COLLABORATION PAGE
+   Project cards that slide right on hover.
+   ───────────────────────────────────────────────────────────── */
+.collab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+.collab-item {
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  border: 1.5px solid #eaeaea;
+  transition: all .2s;
+  cursor: pointer;
+}
+.collab-item:hover {
+  border-color: var(--sky);
+  transform: translateX(4px); /* ← Remove for no slide effect on hover */
+}
+.collab-item h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+.collab-item p {
+  font-size: .9rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* Small category pill tag */
+.collab-tag {
+  display: inline-block;
+  background: var(--sky-light);
+  color: var(--sky-dark);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  /* TWEAK: Change to background: var(--ink); color: white for dark tags */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   11. APPENDIX PAGE
+   Row-style download list with lettered tiles.
+   ───────────────────────────────────────────────────────────── */
+.appendix-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+.appendix-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1.5px solid #eaeaea;
+  border-radius: var(--radius);
+  padding: 22px 28px;
+  transition: all .2s;
+}
+.appendix-item:hover {
+  border-color: var(--sky);
+  background: var(--sky-light);
+}
+
+/* The lettered square tile (A, B, C, D) */
+.appendix-letter {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px; /* ← Set to 50% for circular tiles */
+  background: var(--sky);
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.appendix-info h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  margin-bottom: 4px;
+}
+.appendix-info p {
+  font-size: .85rem;
+  color: var(--mid);
+}
+.appendix-action {
+  margin-left: auto; /* Pushes the button to the far right */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   12. MORE / REFERENCES PAGE
+   ───────────────────────────────────────────────────────────── */
+
+/* 12a. References list */
+.ref-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ← Increase for more breathing room between references */
+}
+.ref-item {
+  font-size: .85rem;
+  color: var(--mid);
+  line-height: 1.7;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background .15s;
+}
+.ref-item:hover {
+  background: var(--sky-light); /* ← Remove hover for plain list */
+}
+
+/* 12b. Experience Gallery */
+.gallery-section {
+  margin-top: 56px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ← Change to repeat(3,1fr) for 3 columns */
+  gap: 10px;
+  margin-top: 16px;
+}
+.gallery-thumb {
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--sky) 60%, var(--sky-dark) 100%);
+  opacity: .75;  /* ← Placeholder opacity; real images won't need this */
+  transition: opacity .2s, transform .2s;
+  cursor: pointer;
+}
+.gallery-thumb:hover {
+  opacity: 1;
+  transform: scale(1.03); /* ← Remove for no zoom effect */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   13. PAGE FADE ANIMATION
+   Sections fade + slide up when shown.
+   TWEAK: Change .3s to .5s for a slower fade, or remove the
+   animation rule entirely for instant switching.
+   ───────────────────────────────────────────────────────────── */
+section {
+  animation: fadein .3s ease;
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────
+   PROJECT PAGE — Trust's Project section styles
+   Add these rules to style.css (anywhere after section 7 is fine,
+   e.g. at the end of section 7g, before section 8).
+   ───────────────────────────────────────────────────────────── */
+
+/* Definition box — large dark rounded pill from the sketch */
+.definition-box {
+  background: var(--ink);
+  color: white;
+  border-radius: 20px;
+  padding: 36px 40px;
+  /* margin: 8px 0 8px; */
+  /* max-width: 880px; */
+}
+
+.definition-label {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .45;
+  margin-bottom: 14px;
+}
+
+.definition-body {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  opacity: .88;
+  margin-bottom: 18px;
+}
+
+.definition-quote {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sky);
+  letter-spacing: .01em;
+  line-height: 1.4;
+}
+
+/* Why Visual Badges — force 3 columns and add colour-top border accent */
+.badge-reasons-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+  margin-bottom: 48px;
+}
+
+.badge-reason-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.badge-reason-icon {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.badge-reason-speed       { border-top: 3px solid var(--badge-cited); }
+.badge-reason-universality{ border-top: 3px solid var(--badge-collected); }
+.badge-reason-consistency  { border-top: 3px solid var(--badge-credited); }
+
+/* Three-column phone mockup grid */
+.badge-mockups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+  margin-bottom: 48px;
+}
+
+/* Individual phone card */
+.phone-mockup {
+  background: var(--white);
+  border: 1.5px solid #eaeaea;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color .2s, transform .2s;
+}
+.phone-mockup:hover {
+  border-color: var(--sky);
+  transform: translateY(-3px);
+}
+
+/* Dark top status bar */
+.phone-bar {
+  padding: 10px 16px 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.phone-bar-line {
+  width: 38px;
+  height: 4px;
+  background: rgba(255,255,255,.35);
+  border-radius: 2px;
+}
+.phone-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.8);
+}
+
+/* Profile card inside phone */
+.phone-profile {
+  padding: 20px 16px 14px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+.phone-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto 10px;
+  color: white;
+}
+.phone-handle {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.phone-badge {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 50px;
+}
+
+/* Placeholder content lines (the squiggles in the sketch) */
+.phone-content {
+  padding: 18px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.phone-line {
+  height: 8px;
+  background: rgba(15,15,15,.08);
+  border-radius: 4px;
+}
+.phone-line-gap {
+  margin-top: 10px;
+  background: rgba(15,15,15,.05);
+}
+
+/* Mobile: collapse 3-col grids to 1 col */
+@media (max-width: 700px) {
+  .badge-reasons-grid { grid-template-columns: 1fr !important; }
+  .badge-mockups      { grid-template-columns: 1fr; }
+  .definition-box     { padding: 28px 22px; }
+}
+
+   14. MOBILE RESPONSIVE (≤700px)
+   All multi-column grids collapse to single column.
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  nav                    { padding: 0 18px; }
+  .nav-links             { gap: 2px; }
+  .nav-links a           { font-size: .72rem; padding: 5px 8px; }
+
+  section                { padding: calc(var(--nav-h) + 32px) 18px 60px; }
+
+  .about-hero            { grid-template-columns: 1fr; gap: 28px; }
+  .avatar-frame          { max-width: 200px; }
+  .about-content h1      { font-size: 2rem; }
+
+  .science-grid          { grid-template-columns: 1fr; }
+  .problem-banner        { grid-template-columns: 1fr; }
+  .sus-cards             { grid-template-columns: 1fr; }
+  .badges-intro          { grid-template-columns: 1fr; }
+
+  .gallery-grid          { grid-template-columns: repeat(2, 1fr); }
+
+  .footer-bar            { flex-direction: column; align-items: flex-start; }
+  .footer-bar .contact   { flex-direction: column; gap: 4px; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESEARCH PAGE — Accordion + platform cards
+   ───────────────────────────────────────────────────────────── */
+
+/* Accordion: Why We Believe Misinformation */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid #eaeaea;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #eaeaea;
+}
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  transition: background .2s;
+}
+.accordion-trigger:hover {
+  background: var(--sky-light);
+}
+.accordion-trigger.open {
+  background: var(--sky-light);
+  border-bottom: 1px solid #d4eef8;
+}
+
+.accordion-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sky);
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .78rem;
+  flex-shrink: 0;
+}
+
+.accordion-title {
+  flex: 1;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--ink);
+}
+
+.accordion-arrow {
+  font-size: .85rem;
+  color: var(--mid);
+  transition: transform .25s ease;
+  flex-shrink: 0;
+}
+.accordion-trigger.open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease, padding .25s ease;
+  padding: 0 24px;
+  background: var(--pale);
+}
+.accordion-body.open {
+  max-height: 400px;
+  padding: 20px 24px 24px;
+}
+.accordion-body p {
+  font-size: .9rem;
+  color: var(--mid);
+  line-height: 1.75;
+}
+
+/* Platform problem — 3-column cards (reuses .science-grid) */
+.platform-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+  margin-bottom: 48px;
+}
+
+/* Why Big Problem — dark banner with 4 inner cards */
+.big-problem-banner {
+  background: var(--ink);
+  color: white;
+  border-radius: var(--radius);
+  padding: 40px;
+  margin: 40px 0;
+}
+.big-problem-banner h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+.big-problem-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.big-problem-card:nth-child(4) { grid-column: 1 / 2; }
+.big-problem-card:nth-child(5) { grid-column: 2 / 4; }
+.big-problem-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 24px;
+  transition: background .2s;
+}
+.big-problem-card:hover { background: rgba(255,255,255,.12); }
+.big-problem-card h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .9rem;
+  margin-bottom: 10px;
+  color: var(--sky);
+}
+.big-problem-card p { font-size: .83rem; line-height: 1.7; opacity: .85; }
+
+/* ── Dark accordion inside big-problem-banner ── */
+.bp-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.bp-item {
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.bp-item:last-child { border-bottom: none; }
+
+.bp-trigger {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: none;
+  cursor: pointer;
+  padding: 18px 22px 14px;
+  text-align: left;
+  transition: background .2s;
+}
+.bp-trigger:hover { background: rgba(255,255,255,.11); }
+.bp-trigger.open  { background: rgba(255,255,255,.13); }
+
+.bp-trigger-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bp-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--sky);
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .75rem;
+  flex-shrink: 0;
+}
+
+.bp-title {
+  flex: 1;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.bp-arrow {
+  font-size: 1.2rem;
+  color: var(--sky);
+  line-height: 1;
+  transition: transform .28s ease;
+  flex-shrink: 0;
+}
+.bp-trigger.open .bp-arrow { transform: rotate(180deg); }
+
+.bp-preview {
+  margin: 6px 0 0 40px;
+  font-size: .8rem;
+  color: rgba(255,255,255,.45);
+  line-height: 1.5;
+  font-style: italic;
+  transition: opacity .2s;
+}
+.bp-trigger.open .bp-preview { opacity: 0; height: 0; margin: 0; overflow: hidden; }
+
+.bp-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .38s ease, padding .25s ease;
+  padding: 0 22px 0 62px;
+  background: rgba(0,0,0,.18);
+}
+.bp-body.open {
+  max-height: 300px;
+  padding: 16px 22px 22px 62px;
+}
+.bp-body p {
+  font-size: .88rem;
+  color: rgba(255,255,255,.82);
+  line-height: 1.75;
+}
+
+/* How to Solve — full-width pill bar */
+.solve-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--pale);
+  border: 1.5px solid #eaeaea;
+  border-radius: 50px;
+  padding: 16px 20px 16px 28px;
+  margin-top: 40px;
+  gap: 16px;
+  transition: border-color .2s;
+}
+.solve-bar:hover {
+  border-color: var(--sky);
+}
+.solve-bar span {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--ink);
+}
+.solve-bar a {
+  white-space: nowrap;
+}
+
+/* 3-col grid forced for concern cards */
+.concern-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 700px) {
+  .platform-grid  { grid-template-columns: 1fr !important; }
+  .concern-grid   { grid-template-columns: 1fr !important; }
+  .big-problem-cards { grid-template-columns: 1fr; }
+  .big-problem-card:nth-child(4),
+  .big-problem-card:nth-child(5) { grid-column: auto; }
+  .solve-bar      { flex-direction: column; border-radius: var(--radius); text-align: center; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   REFERENCES DROPDOWN (More page)
+   ───────────────────────────────────────────────────────────── */
+.references-dropdown {
+  border: 1.5px solid #eaeaea;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.references-toggle {
+  width: 100%;
+  background: var(--pale);
+  border: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  transition: background .2s;
+}
+.references-toggle:hover {
+  background: var(--sky-light);
+}
+.references-toggle.open {
+  background: var(--sky-light);
+  border-bottom: 1.5px solid #d4eef8;
+}
+
+.references-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.references-toggle-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.references-toggle-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.references-toggle-sub {
+  font-size: 0.78rem;
+  color: var(--mid);
+  font-weight: 400;
+}
+
+.references-toggle-arrow {
+  font-size: 1.4rem;
+  color: var(--sky);
+  line-height: 1;
+  transition: transform .28s ease;
+  flex-shrink: 0;
+}
+.references-toggle.open .references-toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.references-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .25s ease;
+  padding: 0 24px;
+  background: var(--white);
+}
+.references-body.open {
+  max-height: 2000px;
+  padding: 24px 24px 28px;
+}
+
+
+/*  */
+/* Badge Layout */
+.badge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Each badge row */
+.badge-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--pale);
+}
+
+/* Icon/Image (LEFT SIDE) */
+.badge-icon {
+  min-width: 250px;       /* width of image container */
+  height: 250px;          /* height of image container */
+  border-radius: 12px;
+  overflow: hidden;      /* ensures image fits inside rounded container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sky-light);
+}
+
+/* Make image fit inside container */
+.badge-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* fills container without distortion */
+}
+
+/* Text (RIGHT SIDE) */
+.badge-content h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.badge-content p {
+  font-size: 0.9rem;
+  color: var(--mid);
+  margin-bottom: 8px;
+}
+
+.badge-content ul {
+  margin-left: 18px;
+  margin-bottom: 10px;
+}
+
+.badge-content li {
+  font-size: 0.88rem;
+  color: var(--mid);
+}
+
+
+/* For the Image Below Badges */
+/* Container for horizontal image */
+.project-image-container {
+  text-align: center;  /* center the image */
+  margin: 48px 0;      /* spacing from content above and below */
+}
+
+/* The horizontal image styling */
+.project-image-container .horizontal-img {
+  width: 100%;           /* responsive full width */
+  max-width: 900px;      /* optional: limits image width */
+  height: auto;          /* maintain aspect ratio */
+  border-radius: 12px;   /* rounded corners to match sky-card style */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+
+/* For the Logo Image of Website */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between dot and logo */
+  text-decoration: none;
+}
+
+/* Logo styling */
+.logo {
+  height: 40px;     /* adjust height */
+  width: auto;      /* keeps aspect ratio */
+  object-fit: contain;
+}
+
+/* Optional: make it responsive */
+@media (max-width: 768px) {
+  .logo {
+    height: 30px;
+  }
+}

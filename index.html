@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Trust Signal — Ayan Ali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="#" onclick="return showSection('about')">
+      <img src="Asset 2.png" alt="The Trust Signal Logo" class="logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#research"       id="nav-research"       onclick="return showSection('research')">Research</a></li>
+      <li><a href="#project"        id="nav-project"        onclick="return showSection('project')">Project</a></li>
+      <li><a href="#management"     id="nav-management"     onclick="return showSection('management')">Learning</a></li>
+      <li><a href="#sustainability" id="nav-sustainability" onclick="return showSection('sustainability')">Sustainability</a></li>
+      <li><a href="#collaboration"  id="nav-collaboration"  onclick="return showSection('collaboration')">Collaboration</a></li>
+      <li><a href="#more"           id="nav-more"           onclick="return showSection('more')" class="cta">More</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════ ABOUT -->
+  <section id="about" class="active">
+    <div class="about-hero">
+      <img src="ayan_img.jpeg" alt="Ayan Ali" class="avatar-frame" style="object-fit:cover;">
+      <div class="about-content">
+        <h1>Hello, I'm Ayan Ali.</h1>
+        <p>I am studying MA Content Creation at Nottingham Trent University. My research explores how we can rebuild trust using visual cues.</p>
+        <p>I grew up during the transition from traditional, regulated television channels to the unfiltered world of social media. I saw how reliable information shaped my early understanding of science and history, and I now see how misinformation erodes that foundation.</p>
+        <p>The Trust Signal is my response to it. It combines my passion for ethical content, background in communication &amp; media studies, and commitment towards building a credible and transparent social media experience.</p>
+        <div style="margin-top:28px; display:flex; gap:10px;">
+          <a class="btn btn-dark" href="#research" onclick="return showSection('research')">Research</a>
+          <a class="btn btn-dark" href="#project"  onclick="return showSection('project')">Project</a>
+          <a class="btn btn-dark" href="#collaboration" onclick="return showSection('collaboration')">Collaboration</a>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-cta">
+      <span>See what people say about the project</span>
+      <a class="btn btn-sky" href="#">Testimonials</a>
+    </div>
+    <div class="footer-bar">
+      <div class="contact">
+        <span><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="06676a6f677f676832353146616b676f6a2865696b">[email&#160;protected]</a></span>
+        <span><strong>Contact:</strong> +447880496898</span>
+      </div>
+      <div class="social-icons">
+        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ RESEARCH -->
+  <section id="research">
+
+    <!-- Problem Statement -->
+    <div class="sky-card">
+      <h2>Problem Statement</h2>
+      <p>
+        I lived through the transitioning phase between the old world of traditional media
+        and the new world of the internet. As a child, my understanding of science,
+        technology, and history came from regulated television channels: National Geographic,
+        Discovery Channel, History TV. These were channels with editorial standards,
+        fact-checkers, and a commitment to accuracy.
+      </p>
+      <p style="margin-top:12px; opacity:.92;">
+        Today, social media has democratised content creation. Anyone with a smartphone can
+        reach millions of people — no required training, no ethical code, no consequences for
+        spreading falsehoods. The result? Truth and misinformation exist side by side, with
+        no clear line between them.
+      </p>
+    </div>
+
+    <!-- The Concerning Parts — 3 stat cards -->
+    <h2 class="section-h2">The Concerning Parts</h2>
+
+    <div class="science-grid concern-grid" style="margin-top:16px;">
+
+      <div class="science-card" style="border-top:3px solid var(--badge-corrected);">
+        <h4>Fake News Spreads Faster</h4>
+        <p>A landmark study analysing X data found that false news stories spread significantly farther, faster, and more broadly than true stories — often reaching 1,500 people six times faster than the truth (Vosoughi, Roy &amp; Aral, 2018).</p>
+      </div>
+
+      <div class="science-card" style="border-top:3px solid var(--badge-cited);">
+        <h4>Trust Is Collapsing</h4>
+        <p>The Edelman Trust Barometer (2023) shows a consistent, alarming decline in trust toward traditional journalism. When people stop trusting mainstream sources, they turn to alternatives — often unregulated social media accounts.</p>
+      </div>
+
+      <div class="science-card" style="border-top:3px solid var(--badge-curated);">
+        <h4>Influencers Aren't Checking Facts</h4>
+        <p>Recent research found that two-thirds of influencers do not fact-check their content before posting. They are trusted voices without the infrastructure of trust.</p>
+      </div>
+
+    </div>
+
+    <!-- Why We Believe Misinformation — Accordion -->
+    <h2 class="section-h2">Why We Believe Misinformation</h2>
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <span class="accordion-num">1</span>
+          <span class="accordion-title">Cognitive Overload — We're Too Tired to Think Critically</span>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p>Think about your own social media scrolling. How many posts do you see in a single session? Dozens? Hundreds? According to researcher Eli Pariser (2011), we experience a "filter bubble" — our feeds are personalised, isolating us from opposing viewpoints. The sheer volume of information impairs our ability to process it critically. We simply don't have the mental energy to deeply evaluate every post, so our brains take shortcuts.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <span class="accordion-num">2</span>
+          <span class="accordion-title">The Illusory Truth Effect — Familiarity Feels Like Truth</span>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p>Hasher, Goldstein, and Toppino (1977) discovered that people are more likely to believe a statement is true simply because they have been exposed to it before. This is the "illusory truth effect." If you see a claim repeated enough times — even if it's false — your brain starts to accept it. This is why misinformation campaigns repeat the same falsehoods over and over.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <span class="accordion-num">3</span>
+          <span class="accordion-title">Social Proof — If It's Popular, It Must Be True</span>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p>On social media, we often use likes, shares, and comments as a shortcut for credibility. Metzger, Flanagin, and Medders (2010) found that people instinctively think: "This post has thousands of likes — it must be trustworthy." But virality has no connection to truth. Emotional, dramatic, and outrageous content gets more engagement, regardless of its accuracy.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <span class="accordion-num">4</span>
+          <span class="accordion-title">Confirmation Bias — We See What We Want to See</span>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p>We are hardwired to seek, interpret, and remember information that matches what we already believe. Nickerson (1998) explains this as confirmation bias. On social media, most of us don't bother to research or verify ideas that challenge our existing views. We scroll past them or dismiss them — creating echo chambers where misinformation thrives.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <span class="accordion-num">5</span>
+          <span class="accordion-title">The "Virtual Lab Coat" Effect — A Dangerous New Finding</span>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p>A 2024 study by Wiegmann and colleagues revealed that when a source had a verified credential — like a blue checkmark indicating "Medical Doctor" — users perceived their non-expert posts as more credible. A doctor posting about climate change was trusted more than a non-doctor, even though the doctor had no climate expertise. This is the "virtual lab coat effect." It proves that simple identity verification can be misleading. We need signals about the content itself, not just the creator's identity.</p>
+        </div>
+      </div>
+
+    </div><!-- /accordion -->
+
+    <!-- The Platform Problem — 3 cards -->
+    <h2 class="section-h2">How Misinformation Spreads – The Platform Problem</h2>
+    <div class="science-grid platform-grid" style="margin-top:16px;">
+
+      <div class="science-card">
+        <h4>Algorithmic Bias for Engagement</h4>
+        <p>Vosoughi, Roy, and Aral (2018) found that false news spreads faster precisely because it evokes stronger emotions — surprise, outrage, fear. These emotional reactions drive engagement, which algorithms amplify further.</p>
+      </div>
+
+      <div class="science-card">
+        <h4>Echo Chambers &amp; Filter Bubbles</h4>
+        <p>Pariser (2011) coined "filter bubble" to describe how algorithms personalise our feeds. Sunstein (2017) added "echo chambers" — closed environments where existing beliefs are constantly reinforced, making us resistant to outside facts.</p>
+      </div>
+
+      <div class="science-card">
+        <h4>Influencers as Opinion Leaders</h4>
+        <p>Katz and Lazarsfeld's (1955) Two-Step Flow theory explains that ideas flow through trusted "opinion leaders." On social media, influencers fill this role — when they share misinformation, their followers trust it, lending it credibility it doesn't deserve.</p>
+      </div>
+
+    </div>
+
+    <!-- Why This Is a Big Problem — dark banner with 4 inner cards -->
+    <div class="big-problem-banner">
+      <h3>Why This Is a Big Problem for Society</h3>
+
+      <div class="bp-accordion">
+
+        <div class="bp-item">
+          <button class="bp-trigger" onclick="toggleBpAccordion(this)">
+            <div class="bp-trigger-top">
+              <span class="bp-num">1</span>
+              <span class="bp-title">The &#8220;Post-Truth&#8221; Environment</span>
+              <span class="bp-arrow">&#8964;</span>
+            </div>
+            <p class="bp-preview">When facts become secondary to feelings, any claim can gain traction&#8230;</p>
+          </button>
+          <div class="bp-body">
+            <p>Keyes (2004) defines &#8220;post-truth&#8221; as a culture where public opinion is shaped more by emotion and personal belief than by objective facts. This environment nourishes misinformation. When facts become secondary to feelings, any claim can gain traction.</p>
+          </div>
+        </div>
+
+        <div class="bp-item">
+          <button class="bp-trigger" onclick="toggleBpAccordion(this)">
+            <div class="bp-trigger-top">
+              <span class="bp-num">2</span>
+              <span class="bp-title">Conspiratorial Thinking</span>
+              <span class="bp-arrow">&#8964;</span>
+            </div>
+            <p class="bp-preview">If you believe &#8220;they&#8221; are lying to you, why trust a correction from &#8220;them&#8221;?&#8230;</p>
+          </button>
+          <div class="bp-body">
+            <p>Uscinski and Parent (2014) showed that conspiracy theories often frame credible sources &#8211; like government agencies or mainstream media &#8211; as liars. This makes users resistant to fact-checking from official sources. If you believe &#8220;they&#8221; are lying to you, why would you trust a correction from &#8220;them&#8221;?</p>
+          </div>
+        </div>
+
+        <div class="bp-item">
+          <button class="bp-trigger" onclick="toggleBpAccordion(this)">
+            <div class="bp-trigger-top">
+              <span class="bp-num">3</span>
+              <span class="bp-title">Identity-Protective Cognition</span>
+              <span class="bp-arrow">&#8964;</span>
+            </div>
+            <p class="bp-preview">People subconsciously reject valid information if it threatens their identity or values&#8230;</p>
+          </button>
+          <div class="bp-body">
+            <p>Kahan (2017) discovered that people subconsciously reject scientifically valid information if accepting it would threaten their identity or values. For example, someone might accept that cigarettes are harmful but reject evidence about sugar&#8217;s hazards because it conflicts with their lifestyle. This selective reasoning makes misinformation sticky.</p>
+          </div>
+        </div>
+
+        <div class="bp-item">
+          <button class="bp-trigger" onclick="toggleBpAccordion(this)">
+            <div class="bp-trigger-top">
+              <span class="bp-num">4</span>
+              <span class="bp-title">Grievance Narratives</span>
+              <span class="bp-arrow">&#8964;</span>
+            </div>
+            <p class="bp-preview">&#8220;The system is rigged against us&#8221; &#8211; when fact-checking feels like an attack&#8230;</p>
+          </button>
+          <div class="bp-body">
+            <p>Benkler, Faris, and Roberts (2018) analysed how disinformation networks frame their messaging around grievances &#8211; &#8220;the system is rigged against us,&#8221; &#8220;they don&#8217;t want you to know this.&#8221; When people believe they are being oppressed, fact-checking feels like an attack, not a correction.</p>
+          </div>
+        </div>
+
+        <div class="bp-item">
+          <button class="bp-trigger" onclick="toggleBpAccordion(this)">
+            <div class="bp-trigger-top">
+              <span class="bp-num">5</span>
+              <span class="bp-title">The Skills Gap: Lateral vs. Vertical Reading</span>
+              <span class="bp-arrow">&#8964;</span>
+            </div>
+            <p class="bp-preview">Most users stay on-site and are fooled by professional-looking design&#8230;</p>
+          </button>
+          <div class="bp-body">
+            <p>Wineburg and McGrew (2019) from the Stanford History Education Group found a critical difference between fact-checkers and regular users. Fact-checkers use &#8220;lateral reading&#8221; &#8211; they open new tabs to investigate a source&#8217;s credibility. Non-experts use &#8220;vertical reading&#8221; &#8211; they stay on the original site and are easily fooled by professional-looking design. Most users lack fact-checker skills. They need tools to help them.</p>
+          </div>
+        </div>
+
+      </div><!-- /bp-accordion -->
+    </div>
+
+    <!-- How to Solve the Problem — pill CTA bar -->
+    <div class="solve-bar">
+      <span>How I solved the problem →</span>
+      <a class="btn btn-sky" href="#project" onclick="return showSection('project')">See the Solution</a>
+    </div>
+
+  </section><!-- /research -->
+
+
+  <!-- ═══════════════════════════════════════════════════════ PROJECT -->
+  <section id="project">
+
+    <div class="sky-card">
+      <h2>Trust's Project</h2>
+      <p>Imagine you're walking through a busy market. Stalls are everywhere, each vendor shouting that their product is the best. How do you decide who to trust? You look for signals: a long-standing reputation, a recommendation from a friend, a certification from a recognised authority.</p>
+      <p style="margin-top:12px; opacity:.92;">Social media is like that market — but without the signals. The Trust Signal is designed to create those signals.</p>
+    </div>
+
+    <h2 class="section-h2">What Are Trust Signals?</h2>
+    <p class="body-text">A system built to bring the signals of the real world into social media — so audiences can make informed, confident decisions about the content they consume.</p>
+
+    <div class="definition-box">
+      <p class="definition-body">A visual badge system that a content creator earns by demonstrating to follow specific ethical practices in their content creation process, providing an instant visual cue for that user that: <br> "This content meets a standard of credibility."</p>
+    </div>
+
+    <h2 class="section-h2" style="margin-top:56px;">Why Visual Badges?</h2>
+
+    <div class="science-grid badge-reasons-grid">
+      <div class="science-card badge-reason-card badge-reason-speed">
+        
+        <h4>Speed</h4>
+        <p>Users process visuals 60,000 times faster than text. A badge communicates trust in a split second — before the user reads a single word.</p>
+      </div>
+      <div class="science-card badge-reason-card badge-reason-universality">
+        
+        <h4>Universality</h4>
+        <p>Badges transcend language barriers. A well-designed icon communicates meaning across cultures without requiring translation.</p>
+      </div>
+      <div class="science-card badge-reason-card badge-reason-consistency">
+        
+        <h4>Consistency</h4>
+        <p>Over time, users learn what each badge means, creating a shared vocabulary for credibility that scales across platforms.</p>
+      </div>
+    </div>
+
+    <h2 class="section-h2" style="margin-top:8px;">The Three Badges</h2>
+
+
+    <div class="badge-list">
+
+  <!-- BADGE 1 -->
+  <div class="badge-item">
+    <div class="badge-icon">
+    <img src="Artboard 1.png" alt="Collected Badge">
+    </div>
+    <div class="badge-content">
+      <h4>COLLECTED</h4>
+
+      <p><strong>What it means:</strong> The creator engaged with primary, real-world, or grassroots information.</p>
+
+      <p><strong>How it's earned:</strong></p>
+      <ul>
+        <li>Interviews local experts or eyewitnesses</li>
+        <li>Gathers on-the-ground data</li>
+        <li>Surveys real communities</li>
+      </ul>
+
+      <p><strong>Why it matters:</strong> Fights "context collapse" (boyd, 2010). Signals that content is grounded in a verifiable reality.</p>
+    </div>
+  </div>
+
+  <!-- BADGE 2 -->
+  <div class="badge-item">
+    <div class="badge-icon">
+  <img src="Artboard 2.png" alt="Collected Badge">
+</div>
+
+    <div class="badge-content">
+      <h4>CREDITED</h4>
+
+      <p><strong>What it means:</strong> The creator respects intellectual labor and traces ideas to their origin.</p>
+
+      <p><strong>How it's earned:</strong></p>
+      <ul>
+        <li>Attributes ideas properly</li>
+        <li>Credits footage and images</li>
+        <li>Links to original inspiration</li>
+      </ul>
+
+      <p><strong>Why it matters:</strong> Restores expert authority. Makes it harder for misinformation to hide behind anonymity.</p>
+    </div>
+  </div>
+
+  <!-- BADGE 3 -->
+  <div class="badge-item">
+    <div class="badge-icon">
+  <img src="Artboard 5.png" alt="Collected Badge">
+</div>
+
+    <div class="badge-content">
+      <h4>CURATED</h4>
+
+      <p><strong>What it means:</strong> The creator is transparent about editing, compilation, and AI use.</p>
+
+      <p><strong>How it's earned:</strong></p>
+      <ul>
+        <li>Labels AI-generated sections</li>
+        <li>Discloses composite edits</li>
+        <li>Explains the curation process</li>
+      </ul>
+
+      <p><strong>Why it matters:</strong> Addresses deepfakes and synthetic media. Makes honesty a competitive advantage.</p>
+    </div>
+  </div>
+
+</div>
+
+ <h2 class="section-h2" style="margin-top:56px;">Badges in Action</h2>
+<div class="project-image-container">
+  <img src="Samle Template 2.png" alt="Project Illustration" class="horizontal-img">
+</div>
+
+
+    <!-- <div class="badge-mockups">
+      <div class="phone-mockup">
+        <div class="phone-bar" style="background:var(--badge-cited);"><div class="phone-bar-line"></div><div class="phone-dot"></div></div>
+        <div class="phone-profile">
+          <div class="phone-avatar" style="background:var(--badge-cited);">💬</div>
+          <p class="phone-handle">@creator_one</p>
+          <span class="phone-badge" style="background:#FFF4DE; color:#a07010;">CITED</span>
+        </div>
+        <div class="phone-content">
+          <div class="phone-line" style="width:100%;"></div>
+          <div class="phone-line" style="width:82%;"></div>
+          <div class="phone-line" style="width:68%;"></div>
+          <div class="phone-line phone-line-gap" style="width:95%;"></div>
+          <div class="phone-line" style="width:75%;"></div>
+          <div class="phone-line" style="width:55%;"></div>
+        </div>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone-bar" style="background:var(--badge-collected);"><div class="phone-bar-line"></div><div class="phone-dot"></div></div>
+        <div class="phone-profile">
+          <div class="phone-avatar" style="background:var(--badge-collected);">🔬</div>
+          <p class="phone-handle">@creator_two</p>
+          <span class="phone-badge" style="background:#E8F2FF; color:#1a5fa0;">COLLECTED</span>
+        </div>
+        <div class="phone-content">
+          <div class="phone-line" style="width:100%;"></div>
+          <div class="phone-line" style="width:78%;"></div>
+          <div class="phone-line" style="width:60%;"></div>
+          <div class="phone-line phone-line-gap" style="width:90%;"></div>
+          <div class="phone-line" style="width:85%;"></div>
+          <div class="phone-line" style="width:50%;"></div>
+        </div>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone-bar" style="background:var(--badge-credited);"><div class="phone-bar-line"></div><div class="phone-dot"></div></div>
+        <div class="phone-profile">
+          <div class="phone-avatar" style="background:var(--badge-credited);">©</div>
+          <p class="phone-handle">@creator_three</p>
+          <span class="phone-badge" style="background:#E6F7EE; color:#166534;">CREDITED</span>
+        </div>
+        <div class="phone-content">
+          <div class="phone-line" style="width:100%;"></div>
+          <div class="phone-line" style="width:88%;"></div>
+          <div class="phone-line" style="width:72%;"></div>
+          <div class="phone-line phone-line-gap" style="width:80%;"></div>
+          <div class="phone-line" style="width:65%;"></div>
+          <div class="phone-line" style="width:45%;"></div>
+        </div>
+      </div>
+    </div> -->
+
+  </section><!-- /project -->
+
+
+  <!-- ═══════════════════════════════════════════════════════ MANAGEMENT -->
+  <section id="management">
+    <div class="sky-card">
+      <h2>My Learning Journey</h2>
+      <p>This master's programme has challenged me to develop a wide range of skills. Here's how this project demonstrates my learning:</p>
+    </div>
+    <h2 class="section-h2" style="margin-top:48px;">My Learning Journey</h2>
+    <p class="body-text">This master's programme has challenged me to develop a wide range of skills. Here's how this project demonstrates my learning:</p>
+    <div class="lo-list">
+      <div class="lo-item"><span class="lo-tag">LO1</span><h4>Critically evaluate appropriate technologies in digital content production.</h4><p>I select and evaluate technologies critically: Adobe Creative Suite for badge design, Material 3 for UX, Notion for project management, Google Forms for data collection, and web platforms for accessible dissemination.</p></div>
+      <div class="lo-item"><span class="lo-tag">LO2</span><h4>Evaluate sustainability, ethics and legal frameworks.</h4><ul><li>Legal: GDPR-compliant data handling, intellectual property respect, creator contracts.</li><li>Social: Inclusive design, diverse representation, free access to badges.</li><li>Ecological: Digital-first distribution, minimal energy footprint.</li><li>Economical: Non-monetary incentive, scalable design.</li></ul></div>
+      <div class="lo-item"><span class="lo-tag">LO6</span><h4>Create innovative, ethical, diverse and inclusive high-end content.</h4><p>The badge system itself is innovative content. I produce professional assets, a website, and a badge kit that is free and accessible to all creators regardless of resources.</p></div>
+      <div class="lo-item"><span class="lo-tag">MLO9</span><h4>Demonstrate high-level leadership and management when working in large teams producing digital online content.</h4><p>I lead a distributed team of 5 pilot creators, manage stakeholder relationships (supervisors, platform contacts), and coordinate content publication schedules.</p></div>
+      <div class="lo-item"><span class="lo-tag">MLO10</span><h4>Create innovative digital content for intended and non-intended audiences that furthers personal employability and entrepreneurship goals.</h4><p>The project serves creators and users (intended) and platforms, policymakers, and educators (non-intended). It builds my profile in ethical tech and content strategy.</p></div>
+      <div class="lo-item"><span class="lo-tag">MLO11</span><h4>Critically reflect on ability to deal with complex issues systematically and creatively, applying learning to future scenarios.</h4><p>I reflect on methodological choices, design iterations, and ethical implications, documenting lessons for future work.</p></div>
+      <div class="lo-item"><span class="lo-tag">MLO8</span><h4>Demonstrate flexible, creative, independent work with self-discipline, self-direction, critical self-awareness, and reflexivity.</h4><p>I set my own milestones, adapt to challenges, seek feedback, and continuously examine how my background shapes the project.</p></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ SUSTAINABILITY -->
+  <section id="sustainability">
+    <div class="sky-card">
+      <h2>Sustainability &amp; Ethics</h2>
+      <p>I have completed the ethical approval and framework sheet for project safety, following GDPR and IP protocols. There are deliberate choices made throughout the project that covers sustainability in practice.</p>
+    </div>
+    <h2 class="section-h2" style="margin-top:48px; text-align:center;">Ethical Framework</h2>
+    <div class="ethics-grid" style="margin-top:24px;">
+      <div class="ethics-row"><div class="ethics-label">Legal</div><div class="ethics-desc">GDPR-compliant data handling; all participants anonymous with right to withdraw; intellectual property respected; creator contracts used.</div></div>
+      <div class="ethics-row"><div class="ethics-label">Social</div><div class="ethics-desc">Inclusive design — badges are free, accessible, and not tied to follower count. Diverse representation in pilot creators and questionnaire outreach.</div></div>
+      <div class="ethics-row"><div class="ethics-label">Ecological</div><div class="ethics-desc">Digital-first distribution; minimal energy use in production; no physical waste. Website hosted on green-energy-powered servers where possible.</div></div>
+      <div class="ethics-row"><div class="ethics-label">Economical</div><div class="ethics-desc">Non-monetary incentive model: badges are earned through ethical practice, not purchased. Potential platform partnerships ensure long-term sustainability.</div></div>
+    </div>
+    <div class="sus-cards">
+      <div class="sus-card"><h3>Sustainability</h3><p>The Trust Signal is designed to be self-sustaining. The badge kit, website, and Notion hub are digital resources that can be maintained with minimal ongoing resources. Future funding may come from platform partnerships or institutional grants, but the core system remains free.</p></div>
+      <div class="sus-card"><h3>Ethics</h3><p>I continuously evaluate the potential for misuse (e.g., fake badges) and design safeguards. My questionnaires include clear consent, and pilot creators sign agreements outlining ethical use. I reflect on my own positionality — growing up between regulated and unregulated media — to remain critically self-aware.</p></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ COLLABORATION -->
+  <section id="collaboration">
+    <div class="sky-card">
+      <h2>Collaboration</h2>
+      <p>I have completed the ethical approval and framework sheet for project safety, following GDPR and IP protocols. There are deliberate choices made throughout the project that covers sustainability in practice.</p>
+    </div>
+    <div class="collab-list">
+      <div class="collab-item"><span class="collab-tag">Event Coverage</span><h4>Richard WhiteHead 100<sup>th</sup> Marathon Celebration Event</h4><p>As the lead researcher, designer, and project manager, I demonstrate high-level leadership and problem-solving across a complex, multi-phase project. I employ systematic production management using Notion as a central hub — tracking research, questionnaires, pilot creators, content calendars, and platform pitches.</p></div>
+      <div class="collab-item"><span class="collab-tag">Music Video</span><h4>Berenice "Wifey Material" Song Promotional Video</h4><p>As the lead researcher, designer, and project manager, I demonstrate high-level leadership and problem-solving across a complex, multi-phase project. I employ systematic production management using Notion as a central hub — tracking research, questionnaires, pilot creators, content calendars, and platform pitches.</p></div>
+      <div class="collab-item"><span class="collab-tag">Field Trip</span><h4>BSC Expo (British Society of Cinematographers)</h4><p>(The is the sample text to change this in Index.html file go to line 495) Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, ad exercitationem! Aliquid accusamus sapiente laborum voluptatibus ratione ex praesentium quas tenetur aperiam, nostrum aspernatur, qui repellendus? Nobis, provident sequi nam doloremque nihil commodi totam distinctio iste pariatur porro!</p></div>
+      <div class="collab-item"><span class="collab-tag">Studio Work</span><h4>Coke vs Pepsi Challenge</h4><p>(The is the sample text to change this in Index.html file go to line 496) Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus fugit, est, aut ducimus quia nemo eligendi cupiditate id fugiat delectus consequuntur dolore reprehenderit necessitatibus eos consequatur reiciendis. Cumque aut, delectus illo magnam ea dolores quia.</p></div>
+      <div class="collab-item"><span class="collab-tag">Documentary</span><h4>Save the Planet Exhibition Video</h4><p>As the lead researcher, designer, and project manager, I demonstrate high-level leadership and problem-solving across a complex, multi-phase project. I employ systematic production management using Notion as a central hub — tracking research, questionnaires, pilot creators, content calendars, and platform pitches.</p></div>
+      <div class="collab-item"><span class="collab-tag">Certification</span><h4>BAFTA ALBERT Sustainable Production</h4><p>As the lead researcher, designer, and project manager, I demonstrate high-level leadership and problem-solving across a complex, multi-phase project. I employ systematic production management using Notion as a central hub — tracking research, questionnaires, pilot creators, content calendars, and platform pitches.</p></div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════════════════ MORE -->
+  <section id="more">
+
+    <!-- ── Appendix (moved from navbar) ── -->
+    <h2 class="section-h2">Project Appendix</h2>
+
+<div class="appendix-list">
+
+  <div class="appendix-item">
+    <div class="appendix-info">
+      <h4>Questionnaire for Content Creators</h4>
+      <p>Full Questionnaire</p>
+    </div>
+    <div class="appendix-action">
+      <a class="btn btn-outline" 
+         href="https://docs.google.com/forms/d/e/1FAIpQLSfr-pqCXIL6hBEyg6RmSHrHPMehYRZUIebX0byF9gkKb7UZtg/viewform?usp=publish-editor"
+         target="_blank" rel="noopener noreferrer">
+        Continue
+      </a>
+    </div>
+  </div>
+
+  <div class="appendix-item">
+    <div class="appendix-info">
+      <h4>Questionnaire for Social Media Users</h4>
+      <p>Full Questionnaire</p>
+    </div>
+    <div class="appendix-action">
+      <a class="btn btn-outline" 
+         href="https://docs.google.com/forms/d/e/1FAIpQLScMtF1Ndy1tSDBPGUBXNts9Gm2qza7GAfw815-opBTTBuMk-A/viewform?usp=publish-editor"
+         target="_blank" rel="noopener noreferrer">
+        Continue
+      </a>
+    </div>
+  </div>
+
+  <div class="appendix-item">
+    <div class="appendix-info">
+      <h4>Trust Signal Badge Guidelines</h4>
+      <p>Click the download button to View</p>
+    </div>
+    <div class="appendix-action">
+      <a class="btn btn-sky" href="Badge Guidelines.pdf" target="_blank">
+        View
+      </a>
+    </div>
+  </div>
+
+  <div class="appendix-item">
+  <div class="appendix-info">
+    <h4>Creator's Pledge Agreement</h4>
+    <p>Click the download button to Download</p>
+  </div>
+  <div class="appendix-action">
+    <a class="btn btn-sky" href="The Trust Signal Creator Pledge.pdf" download="The_Trust_Signal_Creators_Pledge.pdf">
+      Download
+    </a>
+  </div>
+</div>
+
+</div>
+
+    <!-- ── References Dropdown ── -->
+    <h2 class="section-h2" style="margin-top:56px;">References</h2>
+    <div class="references-dropdown" style="margin-top:20px;">
+      <button class="references-toggle" onclick="toggleReferences(this)" aria-expanded="false">
+        <span class="references-toggle-left">
+          <span class="references-toggle-label">Show all 17 sources</span>
+        </span>
+        <span class="references-toggle-arrow">&#8964;</span>
+      </button>
+      <div class="references-body" id="references-body">
+        <div class="ref-list">
+          <div class="ref-item">Benkler, Y., Faris, R. and Roberts, H., 2018. <em>Network Propaganda.</em> New York: Oxford University Press.</div>
+          <div class="ref-item">Chaiken, S., 1980. Heuristic versus systematic information processing. <em>Journal of Personality and Social Psychology,</em> 39(5), pp.752-766.</div>
+          <div class="ref-item">Edelman, 2023. <em>Edelman Trust Barometer 2023.</em> [online] Available at: https://www.edelman.com/trust/2023/trust-barometer</div>
+          <div class="ref-item">Hasher, L., Goldstein, D. and Toppino, T., 1977. Frequency and the Conference of Referential Validity. <em>Journal of Verbal Learning and Verbal Behavior,</em> 16(1), pp.107-112.</div>
+          <div class="ref-item">Hovland, C.I., Janis, I.L. and Kelley, H.H., 1953. <em>Communication and Persuasion.</em> New Haven: Yale University Press.</div>
+          <div class="ref-item">Kahan, D.M., 2017. Misconceptions, Misinformation, and the Logic of Identity-Protective Cognition. <em>Cultural Cognition Project Working Paper Series,</em> (164).</div>
+          <div class="ref-item">Katz, E. and Lazarsfeld, P.F., 1955. <em>Personal Influence.</em> Glencoe, IL: Free Press.</div>
+          <div class="ref-item">Keyes, R., 2004. <em>The Post-Truth Era.</em> New York: St. Martin's Press.</div>
+          <div class="ref-item">Metzger, M.J., Flanagin, A.J. and Medders, R.B., 2010. Social and Heuristic Approaches to Credibility Evaluation Online. <em>Journal of Communication,</em> 60(3), pp.413-439.</div>
+          <div class="ref-item">Nickerson, R.S., 1998. Confirmation Bias. <em>Review of General Psychology,</em> 2(2), pp.175-220.</div>
+          <div class="ref-item">Pariser, E., 2011. <em>The Filter Bubble.</em> New York: Penguin Press.</div>
+          <div class="ref-item">Spence, M., 1973. Job Market Signaling. <em>The Quarterly Journal of Economics,</em> 87(3), pp.355-374.</div>
+          <div class="ref-item">Sunstein, C.R., 2017. <em>#Republic.</em> Princeton: Princeton University Press.</div>
+          <div class="ref-item">Vaidya, T. et al., 2024. Social Media Authentication and Users' Assessments of Health Information. <em>JMIR Formative Research,</em> 8, p.e52503.</div>
+          <div class="ref-item">Vosoughi, S., Roy, D. and Aral, S., 2018. The Spread of True and False News Online. <em>Science,</em> 359(6380), pp.1146-1151.</div>
+          <div class="ref-item">Wiegmann, A., Kowalewski, S. and Aldunate, J., 2024. Virtual lab coats. <em>PLOS ONE,</em> 19(5), p.e0302323.</div>
+          <div class="ref-item">Wineburg, S. and McGrew, S., 2019. Lateral Reading and the Nature of Expertise. <em>Teachers College Record,</em> 121(11).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="gallery-section">
+      <h2 class="section-h2">Experience Gallery (My View)</h2>
+      <h3 class="section-h3" style="margin-top:28px;">My Project Brief</h3>
+      <div class="gallery-grid"><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div></div>
+      <h3 class="section-h3" style="margin-top:28px;">Content Gear Hands On</h3>
+      <div class="gallery-grid"><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div></div>
+      <h3 class="section-h3" style="margin-top:28px;">Extracurricular</h3>
+      <div class="gallery-grid"><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div></div>
+      <h3 class="section-h3" style="margin-top:28px;">@NTU (Architecture &amp; Street Photography)</h3>
+      <div class="gallery-grid"><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div><div class="gallery-thumb"></div></div>
+    </div> -->
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
