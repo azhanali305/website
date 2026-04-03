@@ -891,10 +891,7 @@ section {
 
 
 /* ─────────────────────────────────────────────────────────────
-/* ─────────────────────────────────────────────────────────────
    PROJECT PAGE — Trust's Project section styles
-   Add these rules to style.css (anywhere after section 7 is fine,
-   e.g. at the end of section 7g, before section 8).
    ───────────────────────────────────────────────────────────── */
 
 /* Definition box — large dark rounded pill from the sketch */
@@ -903,8 +900,6 @@ section {
   color: white;
   border-radius: 20px;
   padding: 36px 40px;
-  /* margin: 8px 0 8px; */
-  /* max-width: 880px; */
 }
 
 .definition-label {
@@ -1048,37 +1043,6 @@ section {
   background: rgba(15,15,15,.05);
 }
 
-/* Mobile: collapse 3-col grids to 1 col */
-@media (max-width: 700px) {
-  .badge-reasons-grid { grid-template-columns: 1fr !important; }
-  .badge-mockups      { grid-template-columns: 1fr; }
-  .definition-box     { padding: 28px 22px; }
-}
-
-   14. MOBILE RESPONSIVE (≤700px)
-   All multi-column grids collapse to single column.
-   ───────────────────────────────────────────────────────────── */
-@media (max-width: 700px) {
-  nav                    { padding: 0 18px; }
-  .nav-links             { gap: 2px; }
-  .nav-links a           { font-size: .72rem; padding: 5px 8px; }
-
-  section                { padding: calc(var(--nav-h) + 32px) 18px 60px; }
-
-  .about-hero            { grid-template-columns: 1fr; gap: 28px; }
-  .avatar-frame          { max-width: 200px; }
-  .about-content h1      { font-size: 2rem; }
-
-  .science-grid          { grid-template-columns: 1fr; }
-  .problem-banner        { grid-template-columns: 1fr; }
-  .sus-cards             { grid-template-columns: 1fr; }
-  .badges-intro          { grid-template-columns: 1fr; }
-
-  .gallery-grid          { grid-template-columns: repeat(2, 1fr); }
-
-  .footer-bar            { flex-direction: column; align-items: flex-start; }
-  .footer-bar .contact   { flex-direction: column; gap: 4px; }
-}
 
 /* ─────────────────────────────────────────────────────────────
    RESEARCH PAGE — Accordion + platform cards
@@ -1343,14 +1307,6 @@ section {
   grid-template-columns: repeat(3, 1fr) !important;
 }
 
-@media (max-width: 700px) {
-  .platform-grid  { grid-template-columns: 1fr !important; }
-  .concern-grid   { grid-template-columns: 1fr !important; }
-  .big-problem-cards { grid-template-columns: 1fr; }
-  .big-problem-card:nth-child(4),
-  .big-problem-card:nth-child(5) { grid-column: auto; }
-  .solve-bar      { flex-direction: column; border-radius: var(--radius); text-align: center; }
-}
 
 /* ─────────────────────────────────────────────────────────────
    REFERENCES DROPDOWN (More page)
@@ -1431,7 +1387,6 @@ section {
 }
 
 
-/*  */
 /* Badge Layout */
 .badge-list {
   display: flex;
@@ -1451,10 +1406,10 @@ section {
 
 /* Icon/Image (LEFT SIDE) */
 .badge-icon {
-  min-width: 250px;       /* width of image container */
-  height: 250px;          /* height of image container */
+  min-width: 250px;
+  height: 250px;
   border-radius: 12px;
-  overflow: hidden;      /* ensures image fits inside rounded container */
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1465,7 +1420,7 @@ section {
 .badge-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* fills container without distortion */
+  object-fit: cover;
 }
 
 /* Text (RIGHT SIDE) */
@@ -1493,19 +1448,17 @@ section {
 
 
 /* For the Image Below Badges */
-/* Container for horizontal image */
 .project-image-container {
-  text-align: center;  /* center the image */
-  margin: 48px 0;      /* spacing from content above and below */
+  text-align: center;
+  margin: 48px 0;
 }
 
-/* The horizontal image styling */
 .project-image-container .horizontal-img {
-  width: 100%;           /* responsive full width */
-  max-width: 900px;      /* optional: limits image width */
-  height: auto;          /* maintain aspect ratio */
-  border-radius: 12px;   /* rounded corners to match sky-card style */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle shadow */
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 
@@ -1513,20 +1466,621 @@ section {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 8px; /* space between dot and logo */
+  gap: 8px;
   text-decoration: none;
 }
 
-/* Logo styling */
 .logo {
-  height: 40px;     /* adjust height */
-  width: auto;      /* keeps aspect ratio */
+  height: 40px;
+  width: auto;
   object-fit: contain;
 }
 
-/* Optional: make it responsive */
-@media (max-width: 768px) {
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS — ALL SCREEN SIZES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────
+   LARGE DESKTOPS (1400px+)
+   Wider content area, larger typography
+   ───────────────────────────────────────────────────────────── */
+@media (min-width: 1400px) {
+  section {
+    max-width: 1100px;
+  }
+
+  .about-content h1 {
+    font-size: 3.4rem;
+  }
+
+  .section-h2 {
+    font-size: 2.1rem;
+  }
+
+  .about-hero {
+    grid-template-columns: 360px 1fr;
+    gap: 64px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   STANDARD DESKTOPS (1024px – 1399px)
+   Default styles already target this range — no overrides needed
+   ───────────────────────────────────────────────────────────── */
+
+
+/* ─────────────────────────────────────────────────────────────
+   SMALL DESKTOPS / LARGE TABLETS LANDSCAPE (900px – 1023px)
+   Slightly tighter layout, nav stays horizontal
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  section {
+    padding: calc(var(--nav-h) + 48px) 32px 72px;
+  }
+
+  .about-hero {
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+  }
+
+  .about-content h1 {
+    font-size: 2.6rem;
+  }
+
+  .sky-card {
+    padding: 32px;
+  }
+
+  .badges-intro {
+    padding: 32px;
+  }
+
+  .definition-box {
+    padding: 32px;
+  }
+
+  .big-problem-banner {
+    padding: 32px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TABLETS PORTRAIT / LARGE PHONES LANDSCAPE (768px – 899px)
+   Two-column grids start collapsing, nav condenses
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 899px) {
+  nav {
+    padding: 0 24px;
+  }
+
+  .nav-links a {
+    font-size: .78rem;
+    padding: 5px 10px;
+  }
+
+  section {
+    padding: calc(var(--nav-h) + 40px) 24px 64px;
+  }
+
+  .about-hero {
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+  }
+
+  .about-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-tagline {
+    padding: 28px 32px;
+    font-size: 1.1rem;
+  }
+
+  .science-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .problem-banner {
+    padding: 32px;
+    gap: 24px;
+  }
+
+  .badges-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .badge-icons-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .badge-reasons-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .badge-mockups {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .sus-cards {
+    gap: 16px;
+  }
+
+  .sus-card {
+    padding: 24px;
+  }
+
+  .big-problem-banner {
+    padding: 28px;
+  }
+
+  .big-problem-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .big-problem-card:nth-child(4) { grid-column: auto; }
+  .big-problem-card:nth-child(5) { grid-column: auto; }
+
+  .platform-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .concern-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .badge-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .badge-icon {
+    min-width: unset;
+    width: 100%;
+    height: 200px;
+  }
+
+  .ethics-row {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .sky-card {
+    padding: 28px;
+  }
+
+  .sky-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .section-h2 {
+    font-size: 1.6rem;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TABLETS / LARGE PHONES (700px – 767px)
+   Transition zone — multi-col grids mostly collapse
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .avatar-frame {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .about-content h1 {
+    font-size: 2rem;
+  }
+
+  .science-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .sus-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .badges-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bar .contact {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE (≤700px) — original breakpoint kept & expanded
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  :root {
+    --nav-h: 56px;  /* Slightly shorter nav on mobile */
+  }
+
+  nav {
+    padding: 0 16px;
+  }
+
+  .nav-brand {
+    font-size: .95rem;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links a {
+    font-size: .7rem;
+    padding: 5px 7px;
+  }
+
   .logo {
     height: 30px;
+  }
+
+  section {
+    padding: calc(var(--nav-h) + 28px) 16px 56px;
+  }
+
+  /* About */
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .avatar-frame {
+    max-width: 180px;
+    aspect-ratio: 1/1;
+  }
+
+  .avatar-initials {
+    font-size: 3rem;
+  }
+
+  .about-content h1 {
+    font-size: 1.75rem;
+    letter-spacing: -1px;
+  }
+
+  .about-content p {
+    font-size: .9rem;
+  }
+
+  .about-tagline {
+    margin-top: 32px;
+    padding: 24px 20px;
+    font-size: 1rem;
+  }
+
+  .testimonial-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  /* Grids */
+  .science-grid          { grid-template-columns: 1fr; }
+  .problem-banner        { grid-template-columns: 1fr; padding: 24px 20px; }
+  .sus-cards             { grid-template-columns: 1fr; }
+  .badges-intro          { grid-template-columns: 1fr; padding: 24px 20px; }
+  .badge-reasons-grid    { grid-template-columns: 1fr !important; }
+  .badge-mockups         { grid-template-columns: 1fr; }
+  .platform-grid         { grid-template-columns: 1fr !important; }
+  .concern-grid          { grid-template-columns: 1fr !important; }
+
+  /* Big problem banner */
+  .big-problem-banner    { padding: 24px 20px; }
+  .big-problem-banner h3 { font-size: 1.3rem; }
+  .big-problem-cards     { grid-template-columns: 1fr; }
+  .big-problem-card:nth-child(4),
+  .big-problem-card:nth-child(5) { grid-column: auto; }
+
+  /* Solve bar */
+  .solve-bar {
+    flex-direction: column;
+    border-radius: var(--radius);
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Sky card */
+  .sky-card {
+    padding: 24px 20px;
+  }
+  .sky-card h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Section typography */
+  .section-h2 { font-size: 1.4rem; }
+  .section-h3 { font-size: 1rem; }
+
+  /* Definition box */
+  .definition-box {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+  .definition-body { font-size: .95rem; }
+  .definition-quote { font-size: .95rem; }
+
+  /* Ethics */
+  .ethics-row {
+    grid-template-columns: 80px 1fr;
+  }
+  .ethics-label {
+    padding: 16px 12px;
+    font-size: .78rem;
+  }
+  .ethics-desc {
+    padding: 16px;
+    font-size: .82rem;
+  }
+
+  /* Appendix */
+  .appendix-item {
+    flex-wrap: wrap;
+    padding: 18px 20px;
+    gap: 14px;
+  }
+  .appendix-action {
+    margin-left: 0;
+    width: 100%;
+  }
+  .appendix-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Badge item */
+  .badge-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .badge-icon {
+    min-width: unset;
+    width: 100%;
+    height: 180px;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer-bar .contact {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Badge icons grid */
+  .badge-icons-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Collab items */
+  .collab-item {
+    padding: 20px;
+  }
+
+  /* LO items */
+  .lo-item {
+    padding: 20px;
+  }
+
+  /* Buttons */
+  .btn {
+    font-size: .82rem;
+    padding: 10px 18px;
+  }
+
+  /* Badge table — allow horizontal scroll on very small screens */
+  .badge-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .badge-table {
+    min-width: 480px;
+  }
+
+  /* Accordion */
+  .accordion-trigger {
+    padding: 16px 18px;
+  }
+  .accordion-body.open {
+    padding: 16px 18px 20px;
+  }
+  .bp-body.open {
+    padding: 14px 16px 18px 16px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   EXTRA SMALL PHONES (≤400px)
+   Very tight layouts for older/smaller devices
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 400px) {
+  :root {
+    --nav-h: 52px;
+  }
+
+  nav {
+    padding: 0 12px;
+  }
+
+  .nav-brand {
+    font-size: .85rem;
+  }
+
+  .nav-links a {
+    font-size: .65rem;
+    padding: 4px 6px;
+  }
+
+  section {
+    padding: calc(var(--nav-h) + 24px) 12px 48px;
+  }
+
+  .about-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .avatar-frame {
+    max-width: 140px;
+  }
+
+  .avatar-initials {
+    font-size: 2.4rem;
+  }
+
+  .about-tagline {
+    font-size: .9rem;
+    padding: 20px 16px;
+  }
+
+  .sky-card {
+    padding: 20px 16px;
+  }
+
+  .sky-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .section-h2 {
+    font-size: 1.25rem;
+  }
+
+  .definition-box {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .problem-banner {
+    padding: 20px 16px;
+  }
+
+  .problem-banner h3 {
+    font-size: 1.4rem;
+  }
+
+  .big-problem-banner {
+    padding: 20px 16px;
+  }
+
+  .big-problem-banner h3 {
+    font-size: 1.15rem;
+  }
+
+  .sus-card {
+    padding: 20px;
+  }
+
+  .sus-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .badge-item {
+    padding: 14px;
+  }
+
+  .badge-icon {
+    height: 150px;
+  }
+
+  .appendix-letter {
+    width: 40px;
+    height: 40px;
+    font-size: .95rem;
+  }
+
+  .collab-item {
+    padding: 16px;
+  }
+
+  .lo-item {
+    padding: 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: .78rem;
+    padding: 9px 14px;
+  }
+
+  .accordion-num,
+  .bp-num {
+    width: 24px;
+    height: 24px;
+    font-size: .7rem;
+  }
+
+  .accordion-title,
+  .bp-title {
+    font-size: .85rem;
+  }
+
+  .ethics-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ethics-label {
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    padding: 12px 16px;
+  }
+
+  .ethics-desc {
+    padding: 12px 16px;
+  }
+
+  .references-toggle {
+    padding: 16px;
+  }
+
+  .references-body.open {
+    padding: 16px 16px 20px;
   }
 }
