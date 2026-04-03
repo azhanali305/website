@@ -79,7 +79,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--ink);
   background: var(--white);
   overflow-x: hidden;
@@ -108,7 +108,7 @@ nav {
 
 /* Brand logo / site name in the nav */
 .nav-brand {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 800;
   font-size: 1.1rem; /* ← Make bigger if you want it more prominent */
   color: var(--ink);
@@ -144,7 +144,7 @@ nav {
 
 /* Individual nav links */
 .nav-links a {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.82rem; /* ← Increase if links feel too small */
   font-weight: 500;
   color: var(--mid);
@@ -231,7 +231,7 @@ section.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 4rem;   /* ← Size of the initials */
   font-weight: 800;
   color: rgba(255, 255, 255, 0.9);
@@ -240,7 +240,7 @@ section.active {
 
 /* Main "Hello, I'm Ayan Ali." heading */
 .about-content h1 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 3rem;   /* ← Reduce to 2.2rem if it feels too big */
   font-weight: 800;
   line-height: 1.05;
@@ -261,7 +261,7 @@ section.active {
   background: var(--pale);
   border-radius: var(--radius);
   padding: 36px 40px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.25rem; /* ← Reduce for less emphasis */
   font-weight: 600;
   line-height: 1.6;
@@ -345,7 +345,7 @@ section.active {
   gap: 8px;
   padding: 12px 24px;  /* ← Increase for larger buttons */
   border-radius: 50px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -397,7 +397,7 @@ section.active {
   margin-bottom: 48px;
 }
 .sky-card h2 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.6rem;
   font-weight: 800;
   margin-bottom: 16px;
@@ -410,14 +410,14 @@ section.active {
 
 /* 7b. Shared section typography helpers */
 .section-h2 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.8rem;  /* ← Large section headings */
   font-weight: 800;
   margin-bottom: 8px;
   letter-spacing: -.5px;
 }
 .section-h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 8px;
@@ -448,7 +448,7 @@ section.active {
   transform: translateY(-2px); /* ← Remove for no hover lift effect */
 }
 .science-card h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .95rem;
   margin-bottom: 8px;
@@ -471,7 +471,7 @@ section.active {
   margin: 40px 0;
 }
 .problem-banner h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.8rem;
   font-weight: 800;
   line-height: 1.2;
@@ -509,7 +509,7 @@ section.active {
   line-height: 1.6;
 }
 .cycle-bar strong {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   display: block;
   margin-bottom: 6px;
@@ -532,7 +532,7 @@ section.active {
   margin-bottom: 32px;
 }
 .badges-intro h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 12px;
@@ -567,7 +567,7 @@ section.active {
   background: var(--pale);
   padding: 14px 20px;
   text-align: left;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .08em;
@@ -589,7 +589,7 @@ section.active {
   font-size: .9rem;
 }
 .badge-table td:first-child {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .88rem;
 }
@@ -626,7 +626,7 @@ section.active {
   border-color: var(--sky);
 }
 .lo-item h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .95rem;
   margin-bottom: 10px;
@@ -686,7 +686,7 @@ section.active {
 }
 .ethics-label {
   padding: 22px 20px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .88rem;
   background: var(--pale);
@@ -715,7 +715,7 @@ section.active {
   padding: 32px;
 }
 .sus-card h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 800;
   font-size: 1.3rem;
   margin-bottom: 16px;
@@ -749,7 +749,7 @@ section.active {
   transform: translateX(4px); /* ← Remove for no slide effect on hover */
 }
 .collab-item h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 800;
   font-size: 1.05rem;
   margin-bottom: 12px;
@@ -805,7 +805,7 @@ section.active {
   border-radius: 12px; /* ← Set to 50% for circular tiles */
   background: var(--sky);
   color: white;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 800;
   font-size: 1.1rem;
   display: flex;
@@ -814,7 +814,7 @@ section.active {
   flex-shrink: 0;
 }
 .appendix-info h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .95rem;
   margin-bottom: 4px;
@@ -925,7 +925,7 @@ section {
 }
 
 .definition-quote {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--sky);
@@ -1015,7 +1015,7 @@ section {
   color: white;
 }
 .phone-handle {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .88rem;
   color: var(--ink);
@@ -1133,7 +1133,7 @@ section {
   border-radius: 50%;
   background: var(--sky);
   color: white;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .78rem;
   flex-shrink: 0;
@@ -1141,7 +1141,7 @@ section {
 
 .accordion-title {
   flex: 1;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .95rem;
   color: var(--ink);
@@ -1189,7 +1189,7 @@ section {
   margin: 40px 0;
 }
 .big-problem-banner h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-size: 1.6rem;
   font-weight: 800;
   margin-bottom: 28px;
@@ -1211,7 +1211,7 @@ section {
 }
 .big-problem-card:hover { background: rgba(255,255,255,.12); }
 .big-problem-card h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .9rem;
   margin-bottom: 10px;
@@ -1261,7 +1261,7 @@ section {
   border-radius: 50%;
   background: var(--sky);
   color: white;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .75rem;
   flex-shrink: 0;
@@ -1269,7 +1269,7 @@ section {
 
 .bp-title {
   flex: 1;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .95rem;
   color: #fff;
@@ -1329,7 +1329,7 @@ section {
   border-color: var(--sky);
 }
 .solve-bar span {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: .95rem;
   color: var(--ink);
@@ -1395,7 +1395,7 @@ section {
 }
 
 .references-toggle-label {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--ink);
@@ -1470,7 +1470,7 @@ section {
 
 /* Text (RIGHT SIDE) */
 .badge-content h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Funnel Display', sans-serif;
   font-weight: 700;
   margin-bottom: 8px;
 }
